@@ -42,7 +42,7 @@ app.post('/sales', (req, res) => {
    
     if (!prediction) {
         const sql = `INSERT INTO prediccion(ventas) VALUES (?)`;
-        db.query(sql, [data.prediction], (err, result) => {
+        db.query(sql, [prediction], (err, result) => {
             if (err) {
                 deleteAll();
                 return res.status(500).json({ title: "¡Oh no!", message: 'Ocurrió un error al guardar tus datos.' });
